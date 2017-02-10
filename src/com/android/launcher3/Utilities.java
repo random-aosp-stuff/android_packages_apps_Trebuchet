@@ -105,6 +105,8 @@ import java.util.function.Predicate;
  */
 public final class Utilities {
 
+    private static final String KEY_DT_GESTURE = "pref_dt_gesture";
+
     private static final String TAG = "Launcher.Utilities";
 
     private static final String TRIM_PATTERN = "(^\\h+|\\h+$)";
@@ -938,6 +940,11 @@ public final class Utilities {
             }
         }
         return null;
+    }
+
+    public static boolean isDoubleTapGestureEnabled(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_DT_GESTURE, true);
     }
 
     public static boolean isWorkspaceEditAllowed(Context context) {
