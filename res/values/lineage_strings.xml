@@ -71,4 +71,10 @@
     <!-- Suggestions -->
     <string name="suggestion_pref_screen_title">Suggestions</string>
     <string name="suggestion_pref_screen_desc">For All Apps &amp; Home screen suggestions</string>
+
+    <!-- Searchbar -->
+    <string name="pref_qsb_show_title">Show search bar</string>
+    <string name="pref_qsb_show_summary">Show the search bar on the home screen</string>
+
+    <string name="state_loading">Applying\u2026</string>
 </resources>

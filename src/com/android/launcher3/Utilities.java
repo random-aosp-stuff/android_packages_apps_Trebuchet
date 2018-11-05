@@ -22,6 +22,7 @@ import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.Person;
+import android.app.ProgressDialog;
 import android.app.WallpaperManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -88,6 +89,8 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.android.launcher3.util.Executors.MODEL_EXECUTOR;
+
 /**
  * Various utilities shared amongst the Launcher's classes.
  */
@@ -126,6 +129,10 @@ public final class Utilities {
      */
     public static final int EDGE_NAV_BAR = 1 << 8;
 
+    public static final long WAIT_BEFORE_RESTART = 250;
+
+    public static final String QSB_SHOW = "pref_qsb_show";
+
     /**
      * Indicates if the device has a debug build. Should only be used to store additional info or
      * add extra logging and not for changing the app behavior.
@@ -157,6 +164,10 @@ public final class Utilities {
         ResolveInfo ri = context.getPackageManager().resolveActivity(
                 PackageManagerHelper.getStyleWallpapersIntent(context), 0);
         return ri != null;
+    }
+
+    public static boolean showQsbWidget(Context context) {
+         return getPrefs(context).getBoolean(QSB_SHOW, FeatureFlags.QSB_ON_FIRST_SCREEN);
     }
 
     /**
@@ -700,5 +711,16 @@ public final class Utilities {
 
     public static boolean useSleepGesture(Context context) {
         return getPrefs(context).getBoolean(SLEEP_GESTURE, true);
+    }
+
+    public static void instantRestart(final Context context) {
+        ProgressDialog.show(context, null, context.getString(R.string.state_loading), true, false);
+        MODEL_EXECUTOR.execute(() -> {
+            try {
+                Thread.sleep(WAIT_BEFORE_RESTART);
+            } catch (Exception ignored) {
+            }
+            android.os.Process.killProcess(android.os.Process.myPid());
+        });
     }
 }

@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -288,6 +289,17 @@ public class SettingsActivity extends FragmentActivity
                     return true;
                 case KEY_ICON_PACK:
                     setupIconPackPreference(preference);
+                    return true;
+
+                case Utilities.QSB_SHOW:
+                    final Preference showQsbWidget = (Preference)
+                            findPreference(Utilities.QSB_SHOW);
+                    showQsbWidget.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            new Handler().postDelayed(() -> Utilities.instantRestart(getActivity()), Utilities.WAIT_BEFORE_RESTART);
+                            return true;
+                        }
+                    });
                     return true;
             }
 
