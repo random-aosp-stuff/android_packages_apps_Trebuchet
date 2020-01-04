@@ -77,4 +77,7 @@
     <string name="pref_qsb_show_summary">Show the search bar on the home screen</string>
 
     <string name="state_loading">Applying\u2026</string>
+
+    <!-- SmartSpace -->
+    <string name="smartspace_preferences">Preferences</string>
 </resources>
