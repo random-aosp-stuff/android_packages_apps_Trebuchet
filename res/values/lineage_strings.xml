@@ -63,4 +63,8 @@
 
     <string name="add_shortcuts_label">Auto add app icons</string>
     <string name="title_allow_rotation">Allow rotation</string>
+
+    <!-- DT2S -->
+    <string name="pref_sleep_gesture_title">Double tap to sleep</string>
+    <string name="pref_sleep_gesture_summary">Double tap on empty space for power-off</string>
 </resources>
