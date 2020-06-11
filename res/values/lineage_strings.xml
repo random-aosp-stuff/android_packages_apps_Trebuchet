@@ -76,4 +76,5 @@
     <!-- Icon pack -->
     <string name="app_info_icon_pack">Icon pack</string>
     <string name="pref_value_default">Default</string>
+    <string name="placeholder_string">Loading...</string> <!-- Used for preference height loading. -->
 </resources>
