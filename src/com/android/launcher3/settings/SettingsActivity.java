@@ -291,10 +291,10 @@ public class SettingsActivity extends FragmentActivity
                     setupIconPackPreference(preference);
                     return true;
 
-                case Utilities.QSB_SHOW:
-                    final Preference showQsbWidget = (Preference)
-                            findPreference(Utilities.QSB_SHOW);
-                    showQsbWidget.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                case Utilities.AT_A_GLANCE_SHOW:
+                    final Preference showGlanceWidget = (Preference)
+                            findPreference(Utilities.AT_A_GLANCE_SHOW);
+                    showGlanceWidget.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                         public boolean onPreferenceChange(Preference preference, Object newValue) {
                             new Handler().postDelayed(() -> Utilities.instantRestart(getActivity()), Utilities.WAIT_BEFORE_RESTART);
                             return true;

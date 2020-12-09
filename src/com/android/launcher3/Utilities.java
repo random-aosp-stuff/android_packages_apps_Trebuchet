@@ -131,7 +131,7 @@ public final class Utilities {
 
     public static final long WAIT_BEFORE_RESTART = 250;
 
-    public static final String QSB_SHOW = "pref_qsb_show";
+    public static final String AT_A_GLANCE_SHOW = "pref_at_a_glance_show";
 
     /**
      * Indicates if the device has a debug build. Should only be used to store additional info or
@@ -166,8 +166,8 @@ public final class Utilities {
         return ri != null;
     }
 
-    public static boolean showQsbWidget(Context context) {
-         return getPrefs(context).getBoolean(QSB_SHOW, FeatureFlags.QSB_ON_FIRST_SCREEN);
+    public static boolean showGlanceWidget(Context context) {
+         return getPrefs(context).getBoolean(AT_A_GLANCE_SHOW, true);
     }
 
     /**

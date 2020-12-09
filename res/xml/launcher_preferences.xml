@@ -30,9 +30,9 @@
         android:summaryOff="@string/settings_edit_allow_summary_off" />
 
     <SwitchPreference
-        android:key="pref_qsb_show"
-        android:title="@string/pref_qsb_show_title"
-        android:summary="@string/pref_qsb_show_summary"
+        android:key="pref_at_a_glance_show"
+        android:title="@string/pref_at_a_glance_show_title"
+        android:summary="@string/pref_at_a_glance_show_summary"
         android:defaultValue="true"
         android:persistent="true"/>
 

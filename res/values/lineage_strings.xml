@@ -72,12 +72,10 @@
     <string name="suggestion_pref_screen_title">Suggestions</string>
     <string name="suggestion_pref_screen_desc">For All Apps &amp; Home screen suggestions</string>
 
-    <!-- Searchbar -->
-    <string name="pref_qsb_show_title">Show search bar</string>
-    <string name="pref_qsb_show_summary">Show the search bar on the home screen</string>
-
     <string name="state_loading">Applying\u2026</string>
 
     <!-- SmartSpace -->
+    <string name="pref_at_a_glance_show_title">At A Glance</string>
+    <string name="pref_at_a_glance_show_summary">Show at the top of your Home screen</string>
     <string name="smartspace_preferences">Preferences</string>
 </resources>

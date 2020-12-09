@@ -502,7 +502,7 @@ public class LauncherPreviewRenderer {
             }
 
             // Add first page QSB
-            if (Utilities.showQsbWidget(mContext)) {
+            if (Utilities.showGlanceWidget(mContext)) {
                 View qsb = mHomeElementInflater.inflate(
                         R.layout.search_container_workspace, mWorkspace, false);
                 CellLayout.LayoutParams lp =
