@@ -39,6 +39,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceFragmentCompat.OnPreferenceStartFragmentCallback;
 import androidx.preference.PreferenceFragmentCompat.OnPreferenceStartScreenCallback;
@@ -188,10 +189,15 @@ public class SettingsActivity extends FragmentActivity
 
         private void updatePreferences() {
             PreferenceScreen screen = getPreferenceScreen();
+            // For each PreferenceCategory
             for (int i = screen.getPreferenceCount() - 1; i >= 0; i--) {
-                Preference preference = screen.getPreference(i);
-                if (!initPreference(preference)) {
-                    screen.removePreference(preference);
+                PreferenceCategory category = (PreferenceCategory) screen.getPreference(i);
+                // For each preference inside a category
+                for (int j = category.getPreferenceCount() - 1; j >= 0; j--) {
+                    Preference preference = category.getPreference(j);
+                    if (!initPreference(preference)) {
+                        screen.removePreference(preference);
+                    }
                 }
             }
         }

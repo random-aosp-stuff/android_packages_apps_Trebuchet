@@ -17,6 +17,10 @@
 <androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+<androidx.preference.PreferenceCategory
+        android:key="home_category"
+        android:title="@string/home_category">
+
     <SwitchPreference
         android:defaultValue="true"
         android:key="pref_workspace_edit"
@@ -24,6 +28,49 @@
         android:title="@string/settings_edit_allow_title"
         android:summaryOn="@string/settings_edit_allow_summary_on"
         android:summaryOff="@string/settings_edit_allow_summary_off" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="pref_enable_minus_one"
+        android:summary="@string/pref_show_google_now_summary"
+        android:title="@string/title_show_google_app" />
+
+    <SwitchPreference
+        android:key="pref_add_icon_to_home"
+        android:title="@string/add_shortcuts_label"
+        android:summary="@string/auto_add_shortcuts_description"
+        android:defaultValue="true"
+        android:persistent="true" />
+
+    <SwitchPreference
+        android:key="pref_desktop_show_labels"
+        android:title="@string/show_labels"
+        android:defaultValue="true"
+        android:persistent="true" />
+
+    <SwitchPreference
+        android:key="pref_show_labels_landscape"
+        android:title="@string/show_labels_landscape"
+        android:defaultValue="false"
+        android:persistent="true" />
+
+</androidx.preference.PreferenceCategory>
+
+<androidx.preference.PreferenceCategory
+        android:key="app_drawer_category"
+        android:title="@string/app_drawer_category">
+
+    <SwitchPreference
+        android:key="pref_drawer_show_labels"
+        android:title="@string/show_labels"
+        android:defaultValue="true"
+        android:persistent="true" />
+
+</androidx.preference.PreferenceCategory>
+
+<androidx.preference.PreferenceCategory
+        android:key="icons_category"
+        android:title="@string/icons_category">
 
     <com.android.launcher3.settings.NotificationDotsPreference
         android:key="pref_icon_badging"
@@ -38,33 +85,25 @@
         </intent>
     </com.android.launcher3.settings.NotificationDotsPreference>
 
-    <SwitchPreference
-        android:key="pref_add_icon_to_home"
-        android:title="@string/auto_add_shortcuts_label"
-        android:summary="@string/auto_add_shortcuts_description"
-        android:defaultValue="true"
-        android:persistent="true" />
+    <Preference
+        android:key="pref_icon_pack"
+        android:title="@string/icon_pack_title" />
+
+</androidx.preference.PreferenceCategory>
+
+<androidx.preference.PreferenceCategory
+        android:key="misc_category"
+        android:title="@string/misc_category">
 
     <SwitchPreference
         android:key="pref_allowRotation"
-        android:title="@string/allow_rotation_title"
-        android:summary="@string/allow_rotation_desc"
+        android:title="@string/title_allow_rotation"
         android:defaultValue="@bool/allow_rotation"
         android:persistent="true" />
-
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="pref_enable_minus_one"
-        android:summary="@string/pref_show_google_now_summary"
-        android:title="@string/title_show_google_app" />
 
     <Preference
         android:key="pref_trust_apps"
         android:title="@string/trust_apps_manager_name" />
-
-    <Preference
-        android:key="pref_icon_pack"
-        android:title="@string/icon_pack_title" />
 
     <androidx.preference.PreferenceScreen
         android:key="pref_developer_options"
@@ -72,21 +111,6 @@
         android:title="Developer Options"
         android:fragment="com.android.launcher3.settings.DeveloperOptionsFragment"/>
 
-    <SwitchPreference
-        android:key="pref_desktop_show_labels"
-        android:title="@string/desktop_show_labels"
-        android:defaultValue="true"
-        android:persistent="true" />
+</androidx.preference.PreferenceCategory>
 
-    <SwitchPreference
-        android:key="pref_drawer_show_labels"
-        android:title="@string/drawer_show_labels"
-        android:defaultValue="true"
-        android:persistent="true" />
-
-    <SwitchPreference
-        android:key="pref_show_labels_landscape"
-        android:title="@string/show_labels_landscape"
-        android:defaultValue="false"
-        android:persistent="true" />
 </androidx.preference.PreferenceScreen>
