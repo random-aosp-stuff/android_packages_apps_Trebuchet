@@ -236,6 +236,14 @@ public class TaskOverlayFactory implements ResourceBasedOverride {
             overviewPanel.initiateSplitSelect(mTaskContainer.getTaskView());
         }
 
+        protected void clearAllTasks() {
+            RecentsView recentsView =
+                    mTaskContainer.getTaskView().getRecentsView();
+            // Task has already been dismissed
+            if (recentsView == null) return;
+            recentsView.dismissAllTasks();
+        }
+
         protected void saveAppPair() {
             GroupedTaskView taskView = (GroupedTaskView) mTaskContainer.getTaskView();
             taskView.getRecentsView().getSplitSelectController().getAppPairsController()
@@ -384,12 +392,19 @@ public class TaskOverlayFactory implements ResourceBasedOverride {
             }
 
             @SuppressLint("NewApi")
+            @Override
             public void onScreenshot() {
                 endLiveTileMode(() -> saveScreenshot(mTask));
             }
 
+            @Override
             public void onSplit() {
                 endLiveTileMode(TaskOverlay.this::enterSplitSelect);
+            }
+
+            @Override
+            public void onClearAllTasksRequested() {
+                endLiveTileMode(TaskOverlay.this::clearAllTasks);
             }
 
             public void onSaveAppPair() {
@@ -408,6 +423,9 @@ public class TaskOverlayFactory implements ResourceBasedOverride {
 
         /** User wants to start split screen with current app. */
         void onSplit();
+
+        /** User wants to close all opened tasks. */
+        void onClearAllTasksRequested();
 
         /** User wants to save an app pair with current group of apps. */
         void onSaveAppPair();
