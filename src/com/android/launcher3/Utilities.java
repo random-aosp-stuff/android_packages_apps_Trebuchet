@@ -150,6 +150,9 @@ public final class Utilities {
     public static final int TRANSLATE_LEFT = 2;
     public static final int TRANSLATE_RIGHT = 3;
 
+    public static final int KEY_RECENTS_OPACITY = 70;
+    public static final int KEY_APP_DRAWER_OPACITY = 80;
+
     @IntDef({TRANSLATE_UP, TRANSLATE_DOWN, TRANSLATE_LEFT, TRANSLATE_RIGHT})
     public @interface AdjustmentDirection{}
 
