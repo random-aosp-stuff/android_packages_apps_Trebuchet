@@ -170,6 +170,9 @@ public final class Utilities {
     public static final String GSA_PACKAGE = "com.google.android.googlequicksearchbox";
     public static final String LENS_SHARE_ACTIVITY = "com.google.android.apps.search.lens.LensShareEntryPointActivity";
 
+    public static final int KEY_RECENTS_OPACITY = 70;
+    public static final int KEY_APP_DRAWER_OPACITY = 80;
+
     /**
      * Returns true if theme is dark.
      */
